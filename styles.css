@@ -19,7 +19,8 @@ body {
     margin: 1rem;
     background: linear-gradient(#2c2c2c,#293000);
     border-collapse: collapse;
-    height: 20rem;
+    width: 25rem;
+    height: 30rem;
 }
 
 #calculadora button {
@@ -45,11 +46,20 @@ body {
     scale: 0.9;
 }
 
+#calculadora button:focus {
+    outline: none;
+}
+
+#calculadora button.tecla-activa {
+    background-color: rgba(0, 0, 0, 0.5);
+    scale: 0.9;
+}
+
 #calculadora input {
     border: none;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: end;
     width: 100%;
     height: 100%;
