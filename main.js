@@ -16,10 +16,20 @@ function funcionTeclas(e) {
         }
     }
 
-    // if (e.keyCode >= 48 && e.keyCode <= 57 && operacion.length > 1) {
-    //     calculadora.reset();
-    //     resultado.value += e.key;
-    // }
+    let boton = Array.from(document.querySelectorAll('#calculadora button')).find(b => b.innerText === e.key) || (e.key === 'c' || e.key === 'Escape' ? document.getElementById('clear') : null) || (e.key === 'Enter' ? document.getElementById('igual') : null);
+    //console.log(boton)
+    
+    if (boton) {
+        boton.classList.add('tecla-activa');
+
+        const quitarAnimacion = () => {
+            boton.classList.remove('tecla-activa')
+            document.removeEventListener('keyup', quitarAnimacion);
+        }
+        document.addEventListener('keyup', quitarAnimacion);
+
+    }
+
     if (e.key === '-') {restar()};
     if (e.key === 'Enter') {igual()};
     if (e.key === '/') {dividir()};
@@ -28,6 +38,7 @@ function funcionTeclas(e) {
     if (e.key === 'c' || e.key === 'Escape') {clear()};
     //console.log(e)
 }
+
 function agregarNum(e) {
     if (e.target.getAttribute('type') === 'button') {
         if (e.target.className != 'operacion') {

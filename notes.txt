@@ -1,0 +1,4 @@
+Para hacer mejoras:
+- Implementar que se pueda agregar un punto
+- Animación al precionar las teclas
+- Implementar un botón para borrar el último número
