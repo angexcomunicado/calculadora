@@ -70,3 +70,10 @@ body {
 #calculadora input:focus {
     outline: none;
 }
+
+@media (width < 750px) {
+    #calculadora table {
+        width: 15rem;
+        height: 25rem;
+    }
+}

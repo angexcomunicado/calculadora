@@ -7,14 +7,16 @@ calculadora.addEventListener('click', agregarNum);
 document.addEventListener('keydown', funcionTeclas);
 
 function funcionTeclas(e) {
-    if (e.keyCode >= 48 && e.keyCode <= 57) {
+    if (e.keyCode >= 48 && e.keyCode <= 57 || e.key === '.') {
         if (nuevaEntrada) {
             resultado.value = e.key
             nuevaEntrada = false;
         } else {
-            resultado.value += e.key
+            resultado.value += e.key;
         }
     }
+
+    if (e.key === 'Backspace') {retroceder()};
 
     let boton = Array.from(document.querySelectorAll('#calculadora button')).find(b => b.innerText === e.key) || (e.key === 'c' || e.key === 'Escape' ? document.getElementById('clear') : null) || (e.key === 'Enter' ? document.getElementById('igual') : null);
     //console.log(boton)
@@ -51,6 +53,8 @@ function agregarNum(e) {
             
         }
     }
+    if (e.target.id === 'back') {retroceder()}
+
     if (e.target.id === 'clear') {clear()}
     if (e.target.id === 'dividir') {dividir()}
     if (e.target.id === 'multiplicar') {multiplicar()}
@@ -104,5 +108,10 @@ function igual() {
         const total = eval(operacion.join('')) //eval() evalua una operacion de string como si fuera código javascript, y .join() lo que está haciendo aquí es contatenar lo que está dentro de la string y quitando los espacios
         resultado.value = total;
     }
+}
+
+function retroceder() {
+    let backspace = resultado.value.slice(0, -1);
+    resultado.value = backspace;
 }
 
