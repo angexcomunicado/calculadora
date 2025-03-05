@@ -1,3 +1,7 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +10,7 @@
 
 body {
     background-color: #121212;
-    font-family: monospace;
+    font-family: monospace; 
     color: white;
     display: flex;
     justify-content: center;
@@ -26,9 +30,13 @@ body {
 #calculadora button {
     height: 100%;
     width: 100%;
+    min-width: 4rem;
     border: none;
     padding: 0.8rem;
     background-color: rgba(0, 0, 0, 0.4);
+    /*font-family: "Turret Road", sans-serif;*/
+    /*font-family: "Share Tech", sans-serif;*/
+    font-family: "ZCOOL QingKe HuangYou", sans-serif;
     color: white;
     font-size: 1rem;
     transition: ease-in-out;
@@ -43,7 +51,7 @@ body {
 
 #calculadora button:active {
     background-color: rgba(0, 0, 0, 0.5);
-    scale: 0.9;
+    font-size: 0.9em;
 }
 
 #calculadora button:focus {
@@ -52,12 +60,16 @@ body {
 
 #calculadora button.tecla-activa {
     background-color: rgba(0, 0, 0, 0.5);
-    scale: 0.9;
+    /*scale: 0.9;*/
+    font-size: 0.9em; 
 }
 
 #calculadora input {
     border: none;
     background-color: rgba(0, 0, 0, 0.4);
+    /*font-family: "Turret Road", sans-serif;*/
+    /*font-family: "Share Tech", sans-serif;*/
+    font-family: "ZCOOL QingKe HuangYou", sans-serif;
     color: white;
     font-size: 2rem;
     text-align: end;
@@ -65,6 +77,10 @@ body {
     height: 100%;
     padding: 0.5rem 0.5rem;
     font-weight: 500;
+}
+
+#calculadora input.animaOperacion {
+    color: rgba(0, 0, 0, 0);
 }
 
 #calculadora input:focus {

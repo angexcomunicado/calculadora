@@ -1,5 +1,7 @@
 Para hacer mejoras:
-- Implementar que se pueda agregar un punto
-- Animaci�n al precionar las teclas 
-- Implementar un bot�n para borrar el �ltimo n�mero
-- Hacerlo responsive
+- Implementar que se pueda agregar un punto /
+- Animaci�n al precionar las teclas /
+- Implementar un bot�n para borrar el �ltimo n�mero /
+- Hacerlo responsive /
+- Agregar un botón para calcular porcentaje
+- Hacer que el punto solo se pueda agregar una vez

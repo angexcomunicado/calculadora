@@ -18,7 +18,8 @@ function funcionTeclas(e) {
 
     if (e.key === 'Backspace') {retroceder()};
 
-    let boton = Array.from(document.querySelectorAll('#calculadora button')).find(b => b.innerText === e.key) || (e.key === 'c' || e.key === 'Escape' ? document.getElementById('clear') : null) || (e.key === 'Enter' ? document.getElementById('igual') : null);
+
+    let boton = Array.from(document.querySelectorAll('#calculadora button')).find(b => b.innerText === e.key) || (e.key === 'c' || e.key === 'Escape' ? document.getElementById('clear') : null) || (e.key === 'Enter' ? document.getElementById('igual') : null) || (e.key === '/' ? document.getElementById('dividir') : null) || (e.key === 'Backspace' ? document.getElementById('back') : null);
     //console.log(boton)
     
     if (boton) {
@@ -73,6 +74,7 @@ function dividir() {
     operacion.push(resultado.value);
     operacion.push('/');
     nuevaEntrada = true;
+    animacionOperacion();
     //calculadora.reset(); //Aquí el metodo de reset() al parecer solo funciona cuando es un form, para que se reseteen todos los datos
 }
 
@@ -81,6 +83,7 @@ function multiplicar() {
     operacion.push(resultado.value);
     operacion.push('*');
     nuevaEntrada = true;
+    animacionOperacion();
 }
 
 function restar() {
@@ -88,6 +91,7 @@ function restar() {
     operacion.push(resultado.value);
     operacion.push('-');
     nuevaEntrada = true;
+    animacionOperacion();
 }
 
 function sumar() {
@@ -95,6 +99,7 @@ function sumar() {
     operacion.push(resultado.value);
     operacion.push('+');
     nuevaEntrada = true;
+    animacionOperacion();
 }
 
 function igual() {
@@ -108,10 +113,22 @@ function igual() {
         const total = eval(operacion.join('')) //eval() evalua una operacion de string como si fuera código javascript, y .join() lo que está haciendo aquí es contatenar lo que está dentro de la string y quitando los espacios
         resultado.value = total;
     }
+    animacionOperacion();
 }
 
 function retroceder() {
     let backspace = resultado.value.slice(0, -1);
     resultado.value = backspace;
 }
+
+function animacionOperacion() {
+    resultado.classList.add('animaOperacion')
+    setInterval(() => {
+        resultado.classList.remove('animaOperacion');
+    }, 110)
+}
+
+// function removerAnimacion() {
+//     resultado.classList.remove('animaOperacion')
+// }
 
